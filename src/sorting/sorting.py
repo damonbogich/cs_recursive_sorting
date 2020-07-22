@@ -29,18 +29,41 @@ merge(arr1, arr2)
 
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
-    #base?
-   
-    middle = (len(arr) - 1) // 2 
+    if len(arr) < 2:
+        return arr
+    
+    mid = len(arr) // 2
+    left = arr[:mid] # why not include mid in the bottom half of array
+                    # if we're doing floor division?
+    right = arr[mid:]
+    return merge(merge_sort(left), merge_sort(right))
 
-    if len(arr) >= 2:
-        left = arr[0:middle+1]
-        #recurse?
-        right = arr[middle+1:]
-        #recurse?
+
+    
+# def merge_sort(arr):
+#     #base case
+#     if len(arr) == 2:
+#         left = arr[0]
+#         right = arr[1]
+#         return merge(left, right)
+#     else:
+#         middle = (len(arr) - 1) // 2 
+#         left = arr[0:middle+1]
+#         right = arr[middle+1:] 
+    
+#     if len(arr) < 2:
+#         return merge(left, right)
 
 
-    return arr
+
+#     if len(arr) >= 2:
+#         left = arr[0:middle+1]
+#         #recurse?
+#         right = arr[middle+1:]
+#         #recurse?
+
+
+#     return arr
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory
